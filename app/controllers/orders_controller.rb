@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
     order_query = is_admin? ? Order : Order.where(user_id: session[:user_id])
 
     # Only show orders in the past
-    @orders = order_query.where("order_date < DATETIME('now')").all
+    # @orders = order_query.where("order_date < DATETIME('now')").all
+    @orders = order_query.all
   end
 
   # GET /orders/1 or /orders/1.json
